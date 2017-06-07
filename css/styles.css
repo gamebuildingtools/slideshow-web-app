@@ -3,6 +3,7 @@ body, html {
     margin: 0;
 }
 
+/* Home Page Styles */
 .bg {
     background-image: url("../images/background.jpg");
     height: 100%;
@@ -18,4 +19,22 @@ body, html {
   border-radius: 6px;
   background-color: rgba(0,0,0,0.625);
   color: rgb(244,244,244);
+}
+
+/* Slideshow App Settings Styles */
+.dark-background {
+  background-color: rgb(88,88,88);
+  color: rgb(244,244,244);
+}
+
+.dark-background a {
+  color: rgb(244,244,244);
+}
+
+.dark-background a:hover {
+  color: rgb(88,88,88);
+}
+
+.light-grey-right-border {
+  border-right: 1px solid rgba(144,144,144,0.25);
 }

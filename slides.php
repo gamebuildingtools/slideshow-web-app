@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Slideshow Web App</title>
+    <title>Slideshow Web App - Slides</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -23,23 +23,32 @@
   </head>
   <body>
 
-    <div class="bg">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3" id="homePageLogin">
-            <h1 class="white-background">Slideshow Web App</h1>
-            <form>
-              <div class="form-group">
-                <label for="username">Username</label>
-                <input type="email" class="form-control" id="username" placeholder="Username">
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
-              </div>
-              <button type="login" class="btn btn-default">Login</button>
-            </form>
+    <nav class="navbar dark-background">
+        <div class="container">
+          <div class="navbar-header">
+            <span class="navbar-brand">Slideshow Web App</span>
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="#">Logout</a>
+              </li>
+            </ul>
           </div>
+        </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Slideshow Web App Overview</h1>
+          <p>This web app will provide a number of images via an api that can be used anywhere. You can swap out images by using the interface below. You can also set the amount of time each slide will appear.</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8 light-grey-right-border">
+          <h2>Slideshow Images</h2>
+        </div>
+        <div class="col-md-4">
+          <h2>Slideshow Settings</h2>
         </div>
       </div>
     </div>
