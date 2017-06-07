@@ -44,12 +44,42 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8 light-grey-right-border">
-          <h2>Slideshow Images</h2>
-        </div>
-        <div class="col-md-4">
-          <h2>Slideshow Settings</h2>
-        </div>
+        <form>
+          <div class="col-md-7 light-grey-right-border">
+            <h2>Slideshow Images</h2>
+
+            <?php for ($i=0; $i < 13; $i++) { ?>
+              <div class="row">
+                <div class="col-md-4">
+                  <img src="images/<?=$i?>.jpg" class="img-thumbnail" />
+                </div>
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label for="exampleInputFile">Image <?=$i+1?></label>
+                    <input type="file" id="exampleInputFile">
+                    <p class="help-block">Click the button above to upload a new image.</p>
+                  </div>
+                </div>
+              </div>
+              <hr>
+            <?php } ?>
+
+          </div>
+          <div class="col-md-5">
+            <h2>Slideshow Settings</h2>
+            <div class="form-group">
+              <label for="slideshowTime">Slideshow Time</label>
+              <input type="text" class="form-control" id="slideshowTime" />
+            </div>
+            <div class="form-group">
+              <label for="slideshowNumber">Number of Slides</label>
+              <input type="text" class="form-control" id="slideshowNumber" />
+            </div>
+            <div class="form-group">
+              <button type="button" class="btn btn-primary btn-lg btn-block">Save Changes</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
 
