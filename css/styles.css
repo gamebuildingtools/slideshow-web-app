@@ -38,3 +38,7 @@ body, html {
 .light-grey-right-border {
   border-right: 1px solid rgba(144,144,144,0.25);
 }
+
+.uploadButton {
+  margin-top: 15px;
+}

@@ -44,10 +44,11 @@
         </div>
       </div>
       <div class="row">
-        <form>
+
           <div class="col-md-7 light-grey-right-border">
             <h2>Slideshow Images</h2>
 
+            <form action="upload.php" method="post" enctype="multipart/form-data">
             <?php for ($i=0; $i < 13; $i++) { ?>
               <div class="row">
                 <div class="col-md-4">
@@ -55,16 +56,21 @@
                 </div>
                 <div class="col-md-8">
                   <div class="form-group">
-                    <label for="exampleInputFile">Image <?=$i+1?></label>
-                    <input type="file" id="exampleInputFile">
-                    <p class="help-block">Click the button above to upload a new image.</p>
+                    <label for="imageUpload">Image <?=$i+1?></label>
+                    <input type="file" id="imageUpload">
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Upload Image" name="submit" class="btn btn-default btn-xs">
                   </div>
                 </div>
               </div>
               <hr>
             <?php } ?>
+            </form>
 
           </div>
+
+        <form>
           <div class="col-md-5">
             <h2>Slideshow Settings</h2>
             <div class="form-group">
