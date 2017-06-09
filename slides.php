@@ -48,8 +48,8 @@
           <div class="col-md-7 light-grey-right-border">
             <h2>Slideshow Images</h2>
 
-            <form action="upload.php" method="post" enctype="multipart/form-data">
             <?php for ($i=0; $i < 13; $i++) { ?>
+            <form action="upload.php" method="post" enctype="multipart/form-data">
               <div class="row">
                 <div class="col-md-4">
                   <img src="images/<?=$i?>.jpg" class="img-thumbnail" />
@@ -57,16 +57,17 @@
                 <div class="col-md-8">
                   <div class="form-group">
                     <label for="imageUpload">Image <?=$i+1?></label>
-                    <input type="file" id="imageUpload">
+                    <input type="file" name="upload" id="imageUpload" accept="image/jpeg">
+                    <input type="hidden" name="slideNumber" value="<?=$i?>">
                   </div>
                   <div class="form-group">
                     <input type="submit" value="Upload Image" name="submit" class="btn btn-default btn-xs">
                   </div>
                 </div>
               </div>
+            </form>
               <hr>
             <?php } ?>
-            </form>
 
           </div>
 
