@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,6 +52,11 @@
           <div class="col-md-7 light-grey-right-border">
             <h2>Slideshow Images</h2>
 
+            <?php
+              echo $_SESSION["uploadMessage"];
+              unset($_SESSION['uploadMessage']);
+            ?>
+
             <?php for ($i=0; $i < 13; $i++) { ?>
             <form action="upload.php" method="post" enctype="multipart/form-data">
               <div class="row">
@@ -56,7 +65,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="form-group">
-                    <label for="imageUpload">Image <?=$i+1?></label>
+                    <label for="imageUpload">Image <?=$i?></label>
                     <input type="file" name="upload" id="imageUpload" accept="image/jpeg">
                     <input type="hidden" name="slideNumber" value="<?=$i?>">
                   </div>
