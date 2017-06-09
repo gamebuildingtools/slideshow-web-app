@@ -80,19 +80,25 @@ session_start();
 
           </div>
 
-        <form>
+        <form action="saveSettings.php" method="post">
           <div class="col-md-5">
             <h2>Slideshow Settings</h2>
+
+            <?php
+              echo $_SESSION["saveSettingsMessage"];
+              unset($_SESSION['saveSettingsMessage']);
+            ?>
+
             <div class="form-group">
-              <label for="slideshowTime">Slideshow Time</label>
-              <input type="text" class="form-control" id="slideshowTime" />
+              <label for="slideshowTime">Slideshow Time (in seconds)</label>
+              <input type="text" class="form-control" id="slideshowTime" name="slideshowTime" value="15" />
             </div>
             <div class="form-group">
-              <label for="slideshowNumber">Number of Slides</label>
-              <input type="text" class="form-control" id="slideshowNumber" />
+              <label for="slideshowNumber">Number of Slides (Not changeable at this time)</label>
+              <input type="text" class="form-control" id="slideshowNumber" name="slideshowNumber" value="13" disabled />
             </div>
             <div class="form-group">
-              <button type="button" class="btn btn-primary btn-lg btn-block">Save Changes</button>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Save Changes</button>
             </div>
           </div>
         </form>

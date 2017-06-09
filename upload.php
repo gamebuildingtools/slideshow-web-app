@@ -2,9 +2,6 @@
 // Slideshow Web App Upload Script
 session_start();
 
-// Start off with a blank upload message.
-$uploadMessage = "";
-
 // Check to see if the post variable is submitted.
 if($_POST) {
 
