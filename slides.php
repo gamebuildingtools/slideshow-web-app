@@ -55,7 +55,7 @@ session_start();
             <?php
               echo $_SESSION["uploadMessage"];
               unset($_SESSION['uploadMessage']);
-            ?>
+            ?>            
 
             <?php for ($i=0; $i < 13; $i++) { ?>
             <form action="upload.php" method="post" enctype="multipart/form-data">
