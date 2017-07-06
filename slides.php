@@ -1,7 +1,11 @@
 <?php
 // Start the session
 session_start();
+
+$str = file_get_contents('http://phpstack-36122-277073.cloudwaysapps.com/slideshowSettings.json');
+$json = json_decode($str, true);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,39 +53,54 @@ session_start();
       </div>
       <div class="row">
 
-          <div class="col-md-7 light-grey-right-border">
+          <div class="col-md-8 light-grey-right-border">
             <h2>Slideshow Images</h2>
 
             <?php
               echo $_SESSION["uploadMessage"];
               unset($_SESSION['uploadMessage']);
-            ?>            
+            ?>
 
-            <?php for ($i=0; $i < 13; $i++) { ?>
+            <?php for ($i=0; $i < 14; $i++) { ?>
             <form action="upload.php" method="post" enctype="multipart/form-data">
-              <div class="row">
-                <div class="col-md-4">
-                  <img src="images/<?=$i?>.jpg" class="img-thumbnail" />
-                </div>
-                <div class="col-md-8">
-                  <div class="form-group">
-                    <label for="imageUpload">Image <?=$i?></label>
-                    <input type="file" name="upload" id="imageUpload" accept="image/jpeg">
-                    <input type="hidden" name="slideNumber" value="<?=$i?>">
+                <?php if($i % 2 == 0) { ?>
+                <div class="row">
+                  <div class="col-md-3">
+                    <img src="images/<?=$i?>.jpg" class="img-thumbnail" />
                   </div>
-                  <div class="form-group">
-                    <input type="submit" value="Upload Image" name="submit" class="btn btn-default btn-xs">
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="imageUpload">Image <?=$i+1?></label>
+                      <input type="file" name="upload" id="imageUpload" accept="image/jpeg">
+                      <input type="hidden" name="slideNumber" value="<?=$i?>">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" value="Upload Image" name="submit" class="btn btn-default btn-xs">
+                    </div>
                   </div>
-                </div>
-              </div>
+                <?php } else { ?>
+                  <div class="col-md-3">
+                    <img src="images/<?=$i?>.jpg" class="img-thumbnail" />
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                      <label for="imageUpload">Image <?=$i+1?></label>
+                      <input type="file" name="upload" id="imageUpload" accept="image/jpeg">
+                      <input type="hidden" name="slideNumber" value="<?=$i?>">
+                    </div>
+                    <div class="form-group">
+                      <input type="submit" value="Upload Image" name="submit" class="btn btn-default btn-xs">
+                    </div>
+                  </div>
+                </div><!-- end row -->
+                <hr>
+                <?php } ?>
             </form>
-              <hr>
             <?php } ?>
-
           </div>
 
         <form action="saveSettings.php" method="post">
-          <div class="col-md-5">
+          <div class="col-md-4">
             <h2>Slideshow Settings</h2>
 
             <?php
@@ -91,11 +110,11 @@ session_start();
 
             <div class="form-group">
               <label for="slideshowTime">Slideshow Time (in seconds)</label>
-              <input type="text" class="form-control" id="slideshowTime" name="slideshowTime" value="15" />
+              <input type="text" class="form-control" id="slideshowTime" name="slideshowTime" value="<?=$json["slideshowTime"]?>" />
             </div>
             <div class="form-group">
               <label for="slideshowNumber">Number of Slides (Not changeable at this time)</label>
-              <input type="text" class="form-control" id="slideshowNumber" name="slideshowNumber" value="13" disabled />
+              <input type="text" class="form-control" id="slideshowNumber" name="slideshowNumber" value="<?=$json["numberOfSlides"]?>" disabled />
             </div>
             <div class="form-group">
               <button type="submit" class="btn btn-primary btn-lg btn-block">Save Changes</button>

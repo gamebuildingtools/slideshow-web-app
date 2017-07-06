@@ -8,8 +8,8 @@ if($_POST) {
   if(is_numeric($_POST['slideshowTime'])) {
     $myfile = fopen("slideshowSettings.json", "w");
   $txt = '{
-  "slideshowTime": 15,
-  "numberOfSlides": 13,
+  "slideshowTime": '.$_POST['slideshowTime'].',
+  "numberOfSlides": 14
 }';
     fwrite($myfile, $txt);
 
